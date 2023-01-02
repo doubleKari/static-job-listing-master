@@ -18,7 +18,7 @@ const Card = ({
     <section
       className={`${
         featured && "border-l-8  border-l-cyan-300"
-      }   bg-white mx-auto mobile:mx-auto  mobile:w-4/5 rounded-lg shadow-lg relative mobile:static`}
+      }   bg-white mx-auto mobile:mx-auto  mobile:w-4/5 rounded-lg shadow-xl relative mobile:static`}
     >
       <div className="px-6 pt-10 mobile:pt-5 mobile:flex mobile:justify-between mobile:items-center">
         {/* logo */}
@@ -27,7 +27,7 @@ const Card = ({
           <div className="w-16 h-16 mobile:w-24 mobile:h-24 absolute  -top-8 left-5 mobile:static rounded-full ">
             <img src={logo} className="w-full h-full" alt="logo" />
           </div>
-          <div className="space-y-2 mobile:space-y-1">
+          <div className="space-y-2 mobile:space-y-1 mt-3">
             <div className="flex gap-5 items-center">
               <h1 className="text-cyan-300 font-bold inline-block">
                 {company}

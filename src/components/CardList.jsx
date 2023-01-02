@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Card from "./Card";
+import SearcBar from "./SearcBar";
 import data from "../data.js";
 const CardList = () => {
   return (
