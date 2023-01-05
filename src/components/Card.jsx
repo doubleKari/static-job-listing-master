@@ -1,19 +1,20 @@
-import React from "react";
-
+import { useContext } from "react";
+import { DataContext, DataDispatchContext } from "../context/CardDataProvider";
 const Card = ({
   company,
   logo,
   fresh,
-  featured,
   position,
   role,
   level,
   postedAt,
+  featured,
   contract,
   location,
   languages,
   tools,
 }) => {
+  const dispatch = useContext(DataDispatchContext);
   return (
     <section
       className={`${
@@ -34,9 +35,9 @@ const Card = ({
               </h1>
               <div className="flex gap-2 items-center">
                 {fresh && (
-                  <spa className="bg-cyan-300 flex items-center  text-cyan-100 font-bold px-4 py-1 text-sm uppercase rounded-full">
+                  <span className="bg-cyan-300 flex items-center  text-cyan-100 font-bold px-4 py-1 text-sm uppercase rounded-full">
                     new!
-                  </spa>
+                  </span>
                 )}
                 {featured && (
                   <span className="bg-cyan-500 iflex items-center text-cyan-100  font-bold px-4 py-1 text-sm uppercase rounded-full">
@@ -60,22 +61,43 @@ const Card = ({
         {/* Lower section */}
         <div className="mt-4 flex flex-wrap gap-3 pb-5">
           {languages.map((language) => (
-            <div
+            <button
               key={language}
+              value={language}
+              onClick={(e) => {
+                dispatch({
+                  type: "language",
+                  id: language,
+                });
+              }}
               className="px-4 py-1 rounded-md font-bold bg-cyan-200 hover:bg-cyan-300 text-cyan-300 hover:text-cyan-200 hover:cursor-pointer text-center"
             >
               {language}
-            </div>
+            </button>
           ))}
           {tools.map((tool) => (
             <div
               key={tool}
+              onClick={(e) => {
+                dispatch({
+                  type: "tool",
+                  id: tool,
+                });
+              }}
               className="px-4 py-1 rounded-md font-bold bg-cyan-200 hover:bg-cyan-300 text-cyan-300 hover:text-cyan-200  hover:cursor-pointer text-center"
             >
               {tool}
             </div>
           ))}
-          <div className="px-4 py-1 rounded-md font-bold bg-cyan-200 hover:bg-cyan-300 text-cyan-300 hover:text-cyan-200  hover:cursor-pointer text-center">
+          <div
+            onClick={(e) => {
+              dispatch({
+                type: "role",
+                id: role,
+              });
+            }}
+            className="px-4 py-1 rounded-md font-bold bg-cyan-200 hover:bg-cyan-300 text-cyan-300 hover:text-cyan-200  hover:cursor-pointer text-center"
+          >
             {role}
           </div>
           <div className="px-4 py-1 rounded-md font-bold bg-cyan-200 hover:bg-cyan-300 text-cyan-300  hover:text-cyan-200  hover:cursor-pointer text-center">

@@ -82,8 +82,8 @@ export default [
     postedAt: "1w ago",
     contract: "Full Time",
     location: "Worldwide",
-    languages: ["JavaScript"],
-    tools: ["Ruby", "Sass"],
+    languages: ["JavaScript", "Ruby"],
+    tools: [, "Sass"],
   },
   {
     id: 6,
